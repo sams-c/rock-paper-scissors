@@ -7,7 +7,6 @@ const winLose = document.querySelector(".win-lose");
 const counter = document.querySelector(".counter");
 const loseCounter = document.querySelector(".lose-counter");
 
-handsEl.classList.add("hidden");
 let count = 0;
 let loseCount = 0;
 let hand = 0;
@@ -21,13 +20,13 @@ const resetScores = function () {
   handsEl.classList.add("hidden");
 };
 
+resetScores();
+
 const handRollR = function () {
   hand = Math.trunc(Math.random() * 3) + 1;
   handsEl.classList.remove("hidden");
   handsEl.src = `rps-${hand}.jpeg`;
 };
-
-resetBtn.addEventListener("click", resetScores);
 
 rockBtn.addEventListener("click", function () {
   handRollR();
@@ -72,3 +71,5 @@ scissorBtn.addEventListener("click", function () {
   counter.textContent = `Wins: ${count}`;
   loseCounter.textContent = `Loses ${loseCount}`;
 });
+
+resetBtn.addEventListener("click", resetScores);
